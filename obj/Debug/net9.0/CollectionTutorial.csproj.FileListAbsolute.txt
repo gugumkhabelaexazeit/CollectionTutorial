@@ -1,0 +1,14 @@
+C:\Users\Exaze Trsa25\CollectionTutorial\bin\Debug\net9.0\CollectionTutorial.exe
+C:\Users\Exaze Trsa25\CollectionTutorial\bin\Debug\net9.0\CollectionTutorial.deps.json
+C:\Users\Exaze Trsa25\CollectionTutorial\bin\Debug\net9.0\CollectionTutorial.runtimeconfig.json
+C:\Users\Exaze Trsa25\CollectionTutorial\bin\Debug\net9.0\CollectionTutorial.dll
+C:\Users\Exaze Trsa25\CollectionTutorial\bin\Debug\net9.0\CollectionTutorial.pdb
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.AssemblyInfoInputs.cache
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.AssemblyInfo.cs
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.csproj.CoreCompileInputs.cache
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.dll
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\refint\CollectionTutorial.dll
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.pdb
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.genruntimeconfig.cache
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\ref\CollectionTutorial.dll
