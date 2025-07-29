@@ -16,7 +16,10 @@ class Program
     collections.DictionaryFunction();
     */
 
-    collections.ListFunction();
+    /* ---list
+    collections.ListFunction();*/
+
+    collections.HashSetFunction();
 
   }
 

@@ -12,3 +12,4 @@ C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\refint\CollectionTutor
 C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.pdb
 C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.genruntimeconfig.cache
 C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\ref\CollectionTutorial.dll
+C:\Users\Exaze Trsa25\CollectionTutorial\obj\Debug\net9.0\CollectionTutorial.sourcelink.json

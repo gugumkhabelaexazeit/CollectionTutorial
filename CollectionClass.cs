@@ -1,4 +1,6 @@
 using System;
+using System.Dynamic;
+using System.IO.Compression;
 
 namespace CollectionsTutorial;
 
@@ -41,10 +43,10 @@ public class CollectionsClass
 
     var matchUsers = users.Where(u => u.Name.ToLower() == "jonny").ToList();// search in a list
 
-     foreach (var user in matchUsers)
-     {
-        Console.WriteLine($"{user.UserId}{user.Name}{user.Surname}");
-     }
+    foreach (var user in matchUsers)
+    {
+      Console.WriteLine($"{user.UserId}{user.Name}{user.Surname}");
+    }
   }
 
   public void DictionaryFunction()
@@ -76,13 +78,67 @@ public class CollectionsClass
     }
 
   }
+
+  public void HashSetFunction()
+  {
+    var set = new HashSet<User>();
+
+    var duplicateUser = new User()
+    {
+      UserId = 4,
+      Name = "jhonny",
+      Surname = "Smith"
+    };
+
+    var duplicateUser5 = new User()
+    {
+      UserId = 5,
+      Name = "jhonny",
+      Surname = "Smith"
+    };
+
+    set.Add(_user1);        // jhonny Smith
+    set.Add(_user2);        // Tumi
+    set.Add(_user3);        // Tumi
+    set.Add(duplicateUser); // Duplicate of user1 in content, different object
+    set.Add(duplicateUser5); // Duplicate of user1 in content, different object
+
+    Console.WriteLine($"HashSet Count: {set.Count}");
+
+ foreach (var user in set)
+    {
+      Console.WriteLine($"User: {user.UserId} {user.Name} {user.Surname}");
+     }
+
+
+
   }
   
-  public class User
+
+
+
+  }
+
+public class User
+{
+  public int UserId { get; set; }
+  public string Name { get; set; }
+  public string Surname { get; set; }
+
+  public override bool Equals(object obj)
   {
-    public int UserId { get; set; }
-  public string Name { get; set; } 
-    public string Surname { get; set; }
+    if (obj is not User other) return false;
+      return Name == other.Name && Surname == other.Surname;
+    // return ReferenceEquals(this, obj);
+  }
+  // }
+
+   public override int GetHashCode()
+  {
+    int hash = HashCode.Combine(Name, Surname);
+    Console.WriteLine($"[GetHashCode] User({Name}, {Surname}) => HashCode: {hash}");
+    return hash;
+  }
   }
 
 
