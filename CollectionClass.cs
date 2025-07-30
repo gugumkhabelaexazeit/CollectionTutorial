@@ -36,32 +36,55 @@ public class CollectionsClass
 
   public void ListFunction()
   {
-    List<User> users = new List<User>();
-    users.Add(_user1);
-    users.Add(_user2);
-    users.Add(_user3);
+    try
+        {
+            List<User> users = new List<User> { _user1, _user2, _user3 };
+            Console.WriteLine("Default sort by Name (IComparable)");
+            users.Sort(); 
 
-    var matchUsers = users.Where(u => u.Name.ToLower() == "jonny").ToList();// search in a list
+            foreach (var user in users)
+            {
+                Console.WriteLine($"{user.UserId} {user.Name} {user.Surname}");
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            Console.WriteLine("Sorting failed: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Unexpected error in ListFunction: " + ex.Message);
+        }
 
-    foreach (var user in matchUsers)
-    {
-      Console.WriteLine($"{user.UserId}{user.Name}{user.Surname}");
-    }
   }
 
   public void DictionaryFunction()
   {
-    var users = new Dictionary<int, User>();
-    users.Add(_user1.UserId, _user1);
-    users.Add(_user2.UserId, _user2);
-    users.Add(_user3.UserId, _user3);
+  
+        try
+        {
+            var users = new Dictionary<int, User>();
+            users.Add(_user1.UserId, _user1);
+            users.Add(_user2.UserId, _user2);
+            users.Add(_user3.UserId, _user3);
 
-    User user = null;
-    bool isMatchFound = users.TryGetValue(2, out user);
-
-    if (isMatchFound)
-      Console.WriteLine($"$ User {user.UserId}{user.Name}{user.Surname}");
-
+            if (users.TryGetValue(2, out User user))
+            {
+                Console.WriteLine($"User: {user.UserId} {user.Name} {user.Surname}");
+            }
+            else
+            {
+                Console.WriteLine("User with ID 2 not found.");
+            }
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine("Duplicate key: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Unexpected error in DictionaryFunction: " + ex.Message);
+        }
   }
 
   public void ArraysFunction()
@@ -119,11 +142,16 @@ public class CollectionsClass
 
   }
 
-public class User
+public class User:IComparable<User>
 {
   public int UserId { get; set; }
   public string Name { get; set; }
   public string Surname { get; set; }
+
+  public int CompareTo(User other)
+  {
+    return Name.CompareTo(other.Name);
+  }
 
   public override bool Equals(object obj)
   {
