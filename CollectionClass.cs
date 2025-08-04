@@ -33,58 +33,57 @@ public class CollectionsClass
       Surname = "Mark",
     };
   }
-
-  public void ListFunction()
+public void ListFunction()
+{
+  try
   {
-    try
-        {
-            List<User> users = new List<User> { _user1, _user2, _user3 };
-            Console.WriteLine("Default sort by Name (IComparable)");
-            users.Sort(); 
+    List<User> users = new List<User> { _user1, _user2, _user3 };
 
-            foreach (var user in users)
-            {
-                Console.WriteLine($"{user.UserId} {user.Name} {user.Surname}");
-            }
-        }
-        catch (InvalidOperationException ex)
-        {
-            Console.WriteLine("Sorting failed: " + ex.Message);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Unexpected error in ListFunction: " + ex.Message);
-        }
+    Console.WriteLine("Sorted by Surname using LINQ and lambda:");
+    var sorted = users.OrderBy(u => u.Surname).ToList(); 
 
+    foreach (var user in sorted)
+    {
+      Console.WriteLine($"{user.UserId} {user.Name} {user.Surname}");
+    }
   }
+  catch (Exception ex)
+  {
+    Console.WriteLine("Error in ListFunction: " + ex.Message);
+  }
+}
+
+  
 
   public void DictionaryFunction()
   {
-  
-        try
-        {
-            var users = new Dictionary<int, User>();
-            users.Add(_user1.UserId, _user1);
-            users.Add(_user2.UserId, _user2);
-            users.Add(_user3.UserId, _user3);
 
-            if (users.TryGetValue(2, out User user))
-            {
-                Console.WriteLine($"User: {user.UserId} {user.Name} {user.Surname}");
-            }
-            else
-            {
-                Console.WriteLine("User with ID 2 not found.");
-            }
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine("Duplicate key: " + ex.Message);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Unexpected error in DictionaryFunction: " + ex.Message);
-        }
+    try
+    {
+      var users = new Dictionary<int, User>();
+      users.Add(_user1.UserId, _user1);
+      users.Add(_user2.UserId, _user2);
+      users.Add(_user3.UserId, _user3);
+
+      if (users.TryGetValue(2, out User user))
+      {
+        Console.WriteLine($"User: {user.UserId} {user.Name} {user.Surname}");
+      }
+      else
+      {
+        Console.WriteLine("User with ID 2 not found.");
+      }
+    }
+    catch (ArgumentException ex)
+    {
+      Console.WriteLine("Duplicate key: " + ex.Message);
+    }
+    catch (Exception ex)
+    {
+      Console.WriteLine("Unexpected error in DictionaryFunction: " + ex.Message);
+    }
+
+
   }
 
   public void ArraysFunction()
@@ -120,22 +119,20 @@ public class CollectionsClass
       Surname = "Smith"
     };
 
-    set.Add(_user1);        // jhonny Smith
-    set.Add(_user2);        // Tumi
-    set.Add(_user3);        // Tumi
-    set.Add(duplicateUser); // Duplicate of user1 in content, different object
-    set.Add(duplicateUser5); // Duplicate of user1 in content, different object
-
+    set.Add(_user1);       
+    set.Add(_user2);      
+    set.Add(_user3);       
+    set.Add(duplicateUser); 
+    set.Add(duplicateUser5); 
     Console.WriteLine($"HashSet Count: {set.Count}");
 
- foreach (var user in set)
+    foreach (var user in set)
     {
       Console.WriteLine($"User: {user.UserId} {user.Name} {user.Surname}");
-     }
-
-
-
+    }
   }
+  public delegate bool UserFilter(User user);
+
   
 
 
